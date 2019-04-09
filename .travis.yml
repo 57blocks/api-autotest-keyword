@@ -11,4 +11,4 @@ deploy:
     skip_cleanup: true
     on:
       repo: lilyhu2014/api-autotest-keyword
-    name: $project_version
+    name: api-autotest-keyword-$project_version
