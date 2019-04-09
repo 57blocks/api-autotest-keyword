@@ -1,1 +1,14 @@
 language: java
+before_deploy:
+  - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+deploy:
+  provider: releases
+    api_key:
+      secure: dOFBaTCRvY5G4APzXE9Z9w
+    file:
+      - api-autotest-keyword/target/api-autotest-keyword-$project_version.jar
+    skip_cleanup: true
+    on:
+      repo: lilyhu2014/api-autotest-keyword
+    name: $project_version
