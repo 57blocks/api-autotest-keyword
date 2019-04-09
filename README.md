@@ -1,3 +1,5 @@
 # api-autotest-keyword
 
-This is robotframework keywords coding by Java.
+There are some robotframework keywords coding by Java.
+
+these keywords are used to call API, Compare API 
