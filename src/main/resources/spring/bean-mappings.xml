@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="restClient"
+          class="api.autotest.rest.RestClient" />
+
+    <bean id="oauthTokenCache"
+          class="api.autotest.rest.OauthTokenCache" />
+
+    <bean id="restClientUtils"
+          class="api.autotest.rest.RestClientUtils">
+        <property name="restClient" ref="restClient" />
+        <property name="oauthTokenCache" ref="oauthTokenCache" />
+    </bean>
+
+    <bean id="validationUtils"
+          class="api.autotest.db.ValidationUtils" />
+
+    <bean id="robotDatabaseLibraryUtils"
+          class="api.autotest.db.RobotDatabaseLibraryUtils" />
+</beans>
