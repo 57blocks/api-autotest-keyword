@@ -6,7 +6,7 @@ deploy:
   provider: releases
   api_key:
     secure: JsTQ4SbRLCvcCaVLqRXDoxNW94C7RHkVT0DOyDv3sKclIWM/BzcUyLzxKJcCgscb/2zddh76p8b2ofFz3RpI9T+mzyDd0zIv2v3Ntiby0qsp2WPRXYqdttqD5DCoHV9N8Y0xKSaAu0BBZdK4+i7xSbYYTTE69ThVJyOYZRVsKvnJhLHvllv+T2OhJ1zj9rApWUm4eAs//CsLgC1EGE874uXhfhNQPKXZvuQXRYEEdAR3FM3GHOY+E5lo2FBOCGVhxIBF2XSbPdUyQNIR0efux+afaTFY75qFXW6VtwQe+UxeCAcHt0NlyIi6It8+cfRzTF9vEXL7uh2o1IkrHcdUL3dZpmHx6qwSQAat4NWoerlVjeNNVa4FDxpFyLME50Rsdm4iTSr00ngZf0p51UZQX6XBaJ4MoZXZF1O17G+0ovBRfRIk6+RIuUI0f2b6G/rhF9rQ1NVKHIAXicoXd8BR1fESz+qtp2UxX1H+KzPIhzrngWw98oW5cPfmZSeCyJBq+Ae7qdqdo0kx6B1BdgrKO7grHc5lHPBFmltKxuTspwyieUQcMzaIrCn9cAsBYY3ZdcYGQ8twc7igK+3dHVD3mlaNOoshRn3lGLRBgxGGh9DZ9sdYRLr2uXDgVfEuwOy1BIozaxuWvIBQM/6/4es79eixdeHCr8O8itBWM5nij4E=
-  file: api-autotest-keyword/target/api-autotest-keyword-1.0.0.jar
+  file: target/api-autotest-keyword-1.0.0.jar
   skip_cleanup: true
   on:
     repo: lilyhu2014/api-autotest-keyword
