@@ -1,8 +1,13 @@
 # api-autotest-keyword
 
-There are some robotframework keywords coding by Java.
+Define robotframework keywords by Java.
 
-these keywords are used to call API, Compare API 
+These keywords can call Restful API, compare json result, interact with Mysql DB. 
+
+# Example
+- [api-autotest-example](https://github.com/lilyhu2014/api-autotest-example)
 
 # build history
 Build status: [![build_status](https://travis-ci.com/lilyhu2014/api-autotest-keyword.svg?branch=master)](https://travis-ci.com/lilyhu2014/api-autotest-keyword)
+
+
