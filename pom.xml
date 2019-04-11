@@ -6,7 +6,7 @@
 
     <groupId>com.github.lilyhu2014</groupId>
     <artifactId>api-autotest-keyword</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>api-autotest-keyword</name>

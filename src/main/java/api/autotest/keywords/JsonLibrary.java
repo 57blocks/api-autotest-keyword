@@ -11,12 +11,12 @@ import java.util.Scanner;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.jayway.jsonpath.Configuration;
@@ -31,8 +31,14 @@ import api.autotest.util.CommonUtils;
 public class JsonLibrary {
     private final static Logger LOGGER = Logger.getLogger(JsonLibrary.class);
 
-    private static Configuration configuration = Configuration.builder().jsonProvider(new JacksonJsonNodeJsonProvider())
-            .mappingProvider(new JacksonMappingProvider()).build();
+    private static Configuration configuration;
+
+    static {
+        JacksonJsonNodeJsonProvider jacksonJsonNodeJsonProvider = new JacksonJsonNodeJsonProvider();
+        jacksonJsonNodeJsonProvider.getObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        configuration = Configuration.builder().jsonProvider(jacksonJsonNodeJsonProvider)
+                .mappingProvider(new JacksonMappingProvider()).build();
+    }
 
     @RobotKeyword
     public void validateJsonObject(String expected, String actual) {
@@ -76,14 +82,14 @@ public class JsonLibrary {
             while (itr.hasNext()) {
                 Entry<String, Object> entry = itr.next();
                 if(entry.getValue() == null || entry.getValue().toString().equalsIgnoreCase("None")) {
-                    documentContext.set(entry.getKey(), JSONObject.NULL);
-                }else if(entry.getValue().toString().equalsIgnoreCase("remove from path")) {
+                    documentContext.set(entry.getKey(), "-NULL-");
+                }else if(entry.getValue().toString().equalsIgnoreCase("null")) {
                     documentContext.delete(entry.getKey());
                 }else {
                     documentContext.set(entry.getKey(), entry.getValue());
                 }
             }
-            return documentContext.json();
+            return documentContext.jsonString().replace("\"-NULL-\"", "null");
         } catch (Exception e) {
             LOGGER.error(e);
             throw new RuntimeException(e.getMessage());

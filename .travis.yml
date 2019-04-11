@@ -1,5 +1,9 @@
 language: java
 
+branches:
+  only:
+    - master
+
 ## Export gpg details
 before_install:
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
